@@ -256,7 +256,7 @@ button, input, textarea { font: inherit; color: inherit; }
         border-bottom: 1px solid var(--border);
         display: none;
     }
-    .nav__menu.open { display: flex; }
+    .nav__menu.abierto { display: flex; }
     .nav__menu a { padding: 12px; font-size: 1rem; }
 
     .hero { flex-direction: column-reverse; text-align: center; gap: 26px; padding-block: 48px 40px; }

@@ -1,69 +1,29 @@
-/* =====================================================================
-   PORTFOLIO (versión simple) — Raúl Maciá Pérez
-   Solo lo imprescindible: menú móvil, año y envío del formulario.
-   ===================================================================== */
-(function () {
-    'use strict';
+// ===== Año actual en el pie de página =====
+document.getElementById("anio").textContent = new Date().getFullYear();
 
-    /* Año actual en el footer */
-    var year = document.getElementById('year');
-    if (year) year.textContent = new Date().getFullYear();
+// ===== Menú del móvil: abrir / cerrar =====
+const menu = document.getElementById("menu");
+document.getElementById("boton-menu").addEventListener("click", () => menu.classList.toggle("abierto"));
+// Cerrar el menú al pulsar un enlace
+menu.addEventListener("click", (e) => { if (e.target.tagName === "A") menu.classList.remove("abierto"); });
 
-    /* Menú móvil */
-    var toggle = document.getElementById('nav-toggle');
-    var menu = document.getElementById('nav-menu');
-    if (toggle && menu) {
-        toggle.addEventListener('click', function () {
-            var open = menu.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', String(open));
-        });
-        menu.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () { menu.classList.remove('open'); });
-        });
-    }
+// ===== Formulario de contacto: enviar sin recargar la página =====
+const formulario = document.getElementById("formulario");
+const aviso = document.getElementById("aviso");
 
-    /* Envío del formulario sin recargar la página */
-    var form = document.getElementById('contact-form');
-    if (form) {
-        var msg = document.getElementById('form-msg');
-        var btn = document.getElementById('submit-btn');
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-        function showMsg(text, ok) {
-            if (!msg) return;
-            msg.textContent = text;
-            msg.className = 'form__msg ' + (ok ? 'ok' : 'err');
-        }
+  // Validación del navegador (campos obligatorios, correo válido, etc.)
+  if (!formulario.checkValidity()) return formulario.reportValidity();
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+  aviso.textContent = "Enviando...";
 
-            // Validación nativa del navegador (required, type=email, minlength...)
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            btn.disabled = true;
-            btn.textContent = 'Enviando...';
-            showMsg('', true);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            })
-                .then(function (r) { return r.json().catch(function () { return { ok: false, message: 'Respuesta no válida del servidor.' }; }); })
-                .then(function (res) {
-                    showMsg(res.message || (res.ok ? '¡Mensaje enviado!' : 'No se pudo enviar.'), !!res.ok);
-                    if (res.ok) form.reset();
-                })
-                .catch(function () {
-                    showMsg('Error de conexión. ¿Está el servidor PHP en marcha?', false);
-                })
-                .finally(function () {
-                    btn.disabled = false;
-                    btn.textContent = 'Enviar mensaje';
-                });
-        });
-    }
-})();
+  fetch(formulario.action, { method: "POST", body: new FormData(formulario) })
+    .then((respuesta) => respuesta.json())
+    .then((datos) => {
+      aviso.textContent = datos.message;
+      if (datos.ok) formulario.reset();
+    })
+    .catch(() => { aviso.textContent = "Error de conexión. ¿Está encendido el servidor PHP?"; });
+});

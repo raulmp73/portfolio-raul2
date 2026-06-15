@@ -17,11 +17,11 @@
         <nav class="nav container">
             <a href="#inicio" class="logo">Raúl Maciá</a>
 
-            <button class="nav__toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false">
+            <button class="nav__toggle" id="boton-menu" aria-label="Menú">
                 <span></span><span></span><span></span>
             </button>
 
-            <ul class="nav__menu" id="nav-menu">
+            <ul class="nav__menu" id="menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#formacion">Formación</a></li>
@@ -143,7 +143,7 @@
             <h2 class="section__title">Contacto</h2>
             <p class="contact__intro">¿Quieres escribirme? Rellena el formulario o mándame un correo a <a href="mailto:raulmaciaperez3@gmail.com">raulmaciaperez3@gmail.com</a></p>
 
-            <form class="form" id="contact-form" action="php/contacto.php" method="POST">
+            <form class="form" id="formulario" action="php/contacto.php" method="POST">
                 <div class="form__row">
                     <label>
                         Nombre
@@ -166,8 +166,8 @@
                 <!-- Anti-spam: campo oculto -->
                 <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-                <button type="submit" class="btn btn--solid" id="submit-btn">Enviar mensaje</button>
-                <p class="form__msg" id="form-msg" role="status" aria-live="polite"></p>
+                <button type="submit" class="btn btn--solid">Enviar mensaje</button>
+                <p class="form__msg" id="aviso" role="status" aria-live="polite"></p>
             </form>
         </section>
     </main>
@@ -175,7 +175,7 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <p>© <span id="year"></span> Raúl Maciá Pérez · Callosa del Segura, Alicante</p>
+            <p>© <span id="anio"></span> Raúl Maciá Pérez · Callosa del Segura, Alicante</p>
             <p class="footer__links">
                 <a href="https://github.com/raulmp73" target="_blank" rel="noopener">GitHub</a>
                 <a href="mailto:raulmaciaperez3@gmail.com">Correo</a>
