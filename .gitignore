@@ -1,0 +1,10 @@
+# Copia local de los mensajes del formulario (no debe subirse)
+php/mensajes.log
+
+# Sistema / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.log
