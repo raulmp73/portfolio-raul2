@@ -7,7 +7,8 @@
 const nombresEstado = { done: "Finalizado", now: "En curso", goal: "Objetivo" };
 
 // ---- Cargar los datos del JSON y pintar las secciones ----
-fetch("datos.json")
+// (el "?v=" + fecha evita que el navegador use una versión vieja en caché)
+fetch("datos.json?v=" + Date.now())
   .then((respuesta) => respuesta.json())
   .then((datos) => {
     // Formación
