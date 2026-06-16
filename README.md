@@ -12,17 +12,19 @@ Tema claro y limpio, centrado en el contenido.
 
 ```
 portfolio-raul2/
-├── index.html        → Página principal
+├── index.html        → Página principal (contenido fijo)
+├── datos.json        → Formación, habilidades y proyectos (EDITA AQUÍ)
 ├── css/styles.css    → Estilos (tema claro y simple)
-├── js/main.js        → Menú móvil y envío del formulario
+├── js/main.js        → Carga datos.json, menú móvil y envío del formulario
 ├── php/contacto.php  → Procesa el formulario y envía el correo
 └── assets/           → Foto, favicon y CV
 ```
 
 ## Cómo verlo
 
-- **Solo la parte visual:** abre `index.html` en el navegador (el formulario necesita PHP).
-- **Completo, con el formulario (XAMPP):**
+Ábrelo con **XAMPP** (no con doble clic): los datos se cargan desde `datos.json`
+y el formulario usa PHP, y ambas cosas necesitan un servidor.
+
   1. Copia esta carpeta dentro de `C:\xampp\htdocs\`
   2. Inicia **Apache** en XAMPP
   3. Entra en `http://localhost/portfolio-raul2/`
@@ -34,8 +36,9 @@ configura el SMTP en XAMPP (igual que en la otra versión). ⚠️ GitHub Pages 
 
 | Qué cambiar        | Dónde                                          |
 |--------------------|------------------------------------------------|
+| Formación, habilidades y proyectos | `datos.json`                  |
 | Correo de destino  | `php/contacto.php` → `$EMAIL_DESTINO`          |
-| Textos             | `index.html`                                  |
+| Textos fijos       | `index.html`                                  |
 | Color de acento    | `css/styles.css` → variable `--accent`        |
 
 ---
