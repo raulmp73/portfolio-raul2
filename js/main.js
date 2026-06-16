@@ -33,7 +33,15 @@ fetch("datos.json?v=" + Date.now())
       </article>`).join("");
   })
   .catch(() => {
-    console.error("No se pudo cargar datos.json. Abre la web con XAMPP (http://localhost/...), no con doble clic.");
+    // Si los datos no cargan (p. ej. al abrir con doble clic en vez de XAMPP),
+    // avisar en pantalla en lugar de dejar las secciones vacías.
+    const aviso =
+      '<p style="color:#c0392b;font-weight:600">⚠️ No se pudieron cargar los datos. ' +
+      'Abre la web desde XAMPP (http://localhost/portfolio-raul2/), no con doble clic.</p>';
+    ["formacion-lista", "habilidades-lista", "proyectos-lista"].forEach((id) => {
+      document.getElementById(id).innerHTML = aviso;
+    });
+    console.error("No se pudo cargar datos.json. Abre la web con XAMPP, no con doble clic.");
   });
 
 // ---- Año actual en el pie de página ----
