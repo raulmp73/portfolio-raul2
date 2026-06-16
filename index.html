@@ -79,63 +79,22 @@
         <!-- ===================== FORMACIÓN ===================== -->
         <section class="section container" id="formacion">
             <h2 class="section__title">Formación</h2>
-            <div class="edu">
-                <article class="edu__item">
-                    <span class="edu__badge edu__badge--done">Finalizado</span>
-                    <h3>Grado Medio en Sistemas Microinformáticos y Redes</h3>
-                    <p>SMR · Base en hardware, sistemas operativos y redes.</p>
-                </article>
-                <article class="edu__item">
-                    <span class="edu__badge edu__badge--now">En curso</span>
-                    <h3>Grado Superior en Desarrollo de Aplicaciones Web</h3>
-                    <p>DAW · Java, HTML, CSS, JavaScript, PHP y bases de datos.</p>
-                </article>
-                <article class="edu__item">
-                    <span class="edu__badge edu__badge--goal">Objetivo</span>
-                    <h3>Grado Superior en Desarrollo de Aplicaciones Multiplataforma</h3>
-                    <p>DAM · Mi próxima meta formativa.</p>
-                </article>
-            </div>
+            <!-- Se rellena automáticamente desde js/datos.js -->
+            <div class="edu" id="formacion-lista"></div>
         </section>
 
         <!-- ===================== HABILIDADES ===================== -->
         <section class="section container" id="habilidades">
             <h2 class="section__title">Habilidades</h2>
-            <ul class="skills">
-                <li>Java</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>PHP</li>
-                <li>JavaScript</li>
-                <li>MySQL</li>
-            </ul>
+            <!-- Se rellena automáticamente desde js/datos.js -->
+            <ul class="skills" id="habilidades-lista"></ul>
         </section>
 
         <!-- ===================== PROYECTOS ===================== -->
         <section class="section container" id="proyectos">
             <h2 class="section__title">Proyectos</h2>
-            <div class="projects">
-                <article class="card">
-                    <h3>Cafetería Digital</h3>
-                    <p class="card__tags">Java</p>
-                    <p>
-                        Gestor de pedidos de una cafetería por consola: crear pedidos,
-                        consultar el menú y atenderlos por orden de llegada. Practica
-                        ArrayList, LinkedList, HashMap y TreeMap.
-                    </p>
-                    <a href="https://github.com/raulmp73/RaulRepositorio" target="_blank" rel="noopener" class="card__link">Ver código →</a>
-                </article>
-
-                <article class="card">
-                    <h3>Portfolio Personal</h3>
-                    <p class="card__tags">HTML · CSS · JS · PHP</p>
-                    <p>
-                        Esta web. Página personal responsive con formulario de contacto
-                        en PHP, hecha desde cero con un diseño limpio y sencillo.
-                    </p>
-                    <a href="https://github.com/raulmp73" target="_blank" rel="noopener" class="card__link">Mi GitHub →</a>
-                </article>
-            </div>
+            <!-- Se rellena automáticamente desde js/datos.js -->
+            <div class="projects" id="proyectos-lista"></div>
         </section>
 
         <!-- ===================== CONTACTO ===================== -->
@@ -183,6 +142,8 @@
         </div>
     </footer>
 
+    <!-- 1) tus datos  2) la lógica que los pinta -->
+    <script src="js/datos.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
